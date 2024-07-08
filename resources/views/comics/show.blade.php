@@ -23,5 +23,6 @@
             <span>{{ $fumetto->artists }}</span>
             <span>{{ $fumetto->writers }}</span>
         </div>
+        
     </div>
 @endsection
