@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Guest;
 
+use App\Http\Controllers\Controller;
+use App\Models\comic;
 use Illuminate\Http\Request;
 
 class ComicController extends Controller
@@ -11,7 +13,13 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //
+        $comicsList = comic::all();
+
+        $data = [
+            "catalogo" => $comicsList,
+        ];
+
+        return view("comics.index", $data);
     }
 
     /**
@@ -35,8 +43,14 @@ class ComicController extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
+        $fumetto = comic::find($id);
+
+        $data =[
+            "fumetto" => $fumetto,
+        ];
+
+        return view("comics.show", $data);
+    } 
 
     /**
      * Show the form for editing the specified resource.
