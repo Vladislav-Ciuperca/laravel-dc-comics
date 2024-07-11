@@ -89,21 +89,23 @@ img {
     justify-content: space-around;
     height: 5%;
 }
-button{
-background: rgb(17, 117, 150);
-border: none;
-border-radius: 8px;
-padding: 5px;
+
+button {
+    background: rgb(17, 117, 150);
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
 }
 
-.bottoni form button{
-     color: white;
-     background: red;
+.bottoni form button {
+    color: white;
+    background: red;
 }
 
-.bottoni form button:hover{
+.bottoni form button:hover {
     cursor: pointer;
 }
+
 // SINGLECARD
 .singleCard {
     border: 2px solid white;
@@ -115,7 +117,7 @@ padding: 5px;
 
 //FORM
 .form_container {
-    border: 2px dashed purple;
+    // border: 2px dashed purple;
     width: 900px;
     display: flex;
 }
@@ -134,4 +136,14 @@ padding: 5px;
 
 label {
     display: block;
+}
+
+// ERROR MESSAGE
+.alert {
+    background: rgba(255, 0, 0, 0.438);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 50%;
+    border: 2px solid red;
 }
