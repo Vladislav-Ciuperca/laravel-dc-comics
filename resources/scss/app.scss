@@ -96,6 +96,14 @@ border-radius: 8px;
 padding: 5px;
 }
 
+.bottoni form button{
+     color: white;
+     background: red;
+}
+
+.bottoni form button:hover{
+    cursor: pointer;
+}
 // SINGLECARD
 .singleCard {
     border: 2px solid white;

@@ -1,6 +1,6 @@
 <header>
     <a href="{{ route('home') }}">Home</a>
     <a href="{{ route('about') }}">About</a>
-    <a href="http://localhost:8000/comics">Comics</a>
-    <a href="http://localhost:8000/comics/create">Create</a>
+    <a href="{{ route('comics.index') }}">Comics</a>
+    <a href="{{ route('comics.create') }}">Create</a>
 </header>

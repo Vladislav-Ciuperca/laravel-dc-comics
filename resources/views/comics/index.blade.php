@@ -8,7 +8,7 @@
 
     <div class="container">
 
-        @foreach ($catalogo as $indice=> $fumetto)
+        @foreach ($catalogo as $indice => $fumetto)
             <div class="card">
                 {{-- parter sopra --}}
                 <div class="title">
@@ -34,6 +34,13 @@
                     <button>
                         <a href="http://localhost:8000/comics/{{ $indice }}/edit">modifica</a>
                     </button>
+
+                    <form action="{{route('comics.destroy', $fumetto->id)}}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                            <button type="submit" >elimina</button>
+                    </form>
+
                 </div>
             </div>
         @endforeach

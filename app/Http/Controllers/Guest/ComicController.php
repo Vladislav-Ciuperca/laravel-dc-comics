@@ -35,19 +35,27 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        //recupero e valido tutti i dati
+        $data = $request->validate([
+
+            "title" => 'required|min:3|max:255',
+            "description" => 'required',
+            "thumb" => 'required',
+            "price" => 'required',
+            "series" => 'required',
+            "sale_date" => 'required',
+            "type" => 'required',
+            "artists" => 'required',
+            "writers" => 'required',
+
+        ]);
+
         $data = $request->all();
 
         $new_comic = new comic();
 
-        $new_comic->title = $data["title"];
-        $new_comic->description = $data["description"];
-        $new_comic->thumb = $data["thumb"];
-        $new_comic->price = $data["price"];
-        $new_comic->series = $data["series"];
-        $new_comic->sale_date = $data["sale_date"];
-        $new_comic->type = $data["type"];
-        $new_comic->artists = $data["artists"];
-        $new_comic->writers = $data["writers"];
+        $new_comic->fill($data);
+       
 
         $new_comic->save();
 
@@ -107,12 +115,15 @@ class ComicController extends Controller
 
         return redirect()->route("comics.show", $comic->id);
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $fumetto = comic::findOrFail($id);
+        $fumetto->delete();
+        
+        return redirect()->route("comics.index");
     }
 }
